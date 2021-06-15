@@ -1,4 +1,4 @@
-#!e:\iresm\construción de sitios web\parcial 2\segundoparcial\enviroment\scripts\python.exe
+#!c:\users\omar\documents\github\segundoparcial\enviroment\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

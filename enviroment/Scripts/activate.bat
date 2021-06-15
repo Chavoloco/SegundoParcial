@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=E:\IRESM\Construción de sitios web\Parcial 2\SegundoParcial\enviroment
+set VIRTUAL_ENV=C:\Users\Omar\Documents\GitHub\SegundoParcial\enviroment
 
 if not defined PROMPT set PROMPT=$P$G
 
