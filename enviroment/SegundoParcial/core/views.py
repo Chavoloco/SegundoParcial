@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def index(request):
+    # contenido = {"nombre_sitio": "LibrosOnline"}
+    # return HttpResponse("Hola Mundo!.")
+    return render(request, "core/template/index.html")

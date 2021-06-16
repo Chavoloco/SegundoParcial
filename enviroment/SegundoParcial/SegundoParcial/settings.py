@@ -56,8 +56,8 @@ ROOT_URLCONF = "SegundoParcial.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
         "APP_DIRS": True,
+        "DIRS": [BASE_DIR / "core/template/"],
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
