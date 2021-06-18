@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Cantidad de Clientes</h1>
+<h3>Esta vista muestra la cantidad de clientes que tenemos cargados en la base de datos</h3>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="d-inline p-2 bg-primary text-white"><strong>Clientes:</strong></div>
+        <div class="d-inline p-2 bg-dark text-white">{{ num_clientes }}</div>   
+    </li>
+</ul>
+
+<p>Visitaste esta página {{ num_visits }}{% if num_visits == 1 %} time{% else %} veces{% endif %}.</p>
+  <!-- <ul>
+    <li><strong>Clientes:</strong> {{ num_clientes }}</li>
+  </ul> -->
+
+{% endblock %}

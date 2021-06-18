@@ -7,13 +7,13 @@ class Clientes(models.Model):
     pais = models.CharField(max_length=65)
     telefono = models.CharField(max_length=20)
     direccion = models.CharField(max_length=65)
-    dni = models.IntegerField(
+    dni = models.CharField(
         max_length=25,
         unique=True,
     )
 
     class Meta:
-        ordering = ["apellido"]
+        ordering = ["id"]
 
     def __str__(self):
-        return self.nombre
+        return self.apellido

@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Lista de clientes</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">País</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Dni</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if clientes_list  %}
+          {% for cliente in clientes_list  %}
+            <tr>
+              <th scope="row">{{cliente.id}}</th>
+              <td>{{ cliente.nombre }}</td>
+              <td>{{cliente.apellido}}</td>
+              <td>{{cliente.pais}}</td>
+              <td>{{cliente.telefono}}</td>
+              <td>{{cliente.direccion}}</td>
+              <td>{{cliente.dni}}</td>
+              <td>
+                <button type="button" class="btn btn-secondary">aca van las opciones</button>
+                <button type="button" class="btn btn-warning">CRUD</button>
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <p>Vos sabe que no hay nada que mostrar :(.</p>
+        {% endif %}     
+      </tbody>
+    </table>
+    
+{% endblock %}
