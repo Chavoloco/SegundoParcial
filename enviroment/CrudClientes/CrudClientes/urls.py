@@ -25,4 +25,5 @@ urlpatterns = [
     path("clientes/", include("clientes.urls")),
     # url(r"^clientes/", include("clientes.urls")),
     path("", RedirectView.as_view(url="/clientes/", permanent=True)),
+    path("accounts/", include("django.contrib.auth.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
