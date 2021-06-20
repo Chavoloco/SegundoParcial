@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+<form action="" method="post" style="max-width: 15px;">
+    {% csrf_token %}
+    <table class="table table-success  table-hover">
+    {{ form.as_table }}
+    </table>
+    <button type="submit" value="Submit" class="btn btn-success">Crear</button>
+    <!-- <input type="submit" value="Submit" /> -->
+
+</form>
+
+
+{% endblock %}
