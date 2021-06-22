@@ -35,6 +35,10 @@ class listaClientes(generic.ListView):
     model = Clientes
     paginate_by = 10
 
+    def get_queryset(self):
+        self.cliente = get_object_or_404(cliente, name=self.kwargs["Clientes"])
+        return Clientes.objects.filter(cliente=self.cliente)
+
     # def get_queryset(self):
     #     return Clientes.objects.filter(nombre__icontains="jer")[
     #         :5
@@ -60,4 +64,4 @@ class ActualizarCliente(UpdateView):
 class EliminarCliente(DeleteView):
     model = Clientes
     success_url = "/clientes/clientes_list/"
-    # success_url = reverse_lazy("cliente")
+    # success_url = reverse_lazy("Clientes")

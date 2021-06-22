@@ -14,37 +14,42 @@
 
   <!-- Add additional CSS in static file -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+  <script src="{% static '/js/index.js' %}"></script>
 
- 
 </head>
 
 <body >
-    
-
-  <div class="container-fluid" >
-
-    <div class="row">
-      <div class="col-sm-2">
-      {% block sidebar %} <!-- insert default navigation text for every page -->
-      <ul class="sidebar-nav" >
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'clientes_list' %}">Clientes</a></li>
-      <!-- </ul>
-      <ul > -->
-
-        ...
-    
-       {% if user.is_authenticated %}
-         <li>Usuario: {{ user.get_username }}</li>
-         <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-       {% else %}
-         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-       {% endif %} 
-      </ul>
-     {% endblock %}
+  
+{% if user.is_authenticated %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid" >
+      <a class="navbar-brand" href="#">Parcial N°2 IDS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active " href="{% url 'clientes_list' %}">Ver Clientes</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <ul>
+              Usuario: {{ user.get_username }}
+              <a class="btn btn-success btn-sm" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+{% else %}
+              <a class="btn btn-success btn-sm" href="{% url 'login'%}?next={{request.path}}">Login</a>
+{% endif %} 
+          </ul>
+        </form>
       </div>
-      <div class="col-sm-10 ">
+    </div>
+  </nav>
+      <div class="col-sm-10 " >
       {% block content %}<!-- default content text (typically empty) -->{% endblock %}
       {% block pagination %}
             {% if is_paginated %}

@@ -1,39 +1,42 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
+<div style="margin-left: 100px; border: solid black 2px;">
 {% if form.errors %}
 <p>Tu usuario y contraseña no son correctos, por favor, intenta de nuevo.</p>
 {% endif %}
 
 {% if next %}
+
     {% if user.is_authenticated %}
     <p>Tu cuenta no tiene permiso para acceder a esta página. Si queres entrar,
     logueate con otra cuenta wachin!!.</p>
     {% else %}
-    <p>Por favor logueate para ver esta página.</p>
+    <h5>Por favor logueate para ver esta página.</h5> 
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
-
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
+<form class="row g-3" method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="col-auto">
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+    <!-- <label for="staticEmail2" class="visually-hidden">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com"> -->
+  </div>
+  <div class="col-auto">
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+    <!-- <label for="inputPassword2" class="visually-hidden">Password</label>
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password"> -->
+  </div>
+  <div class="col-auto">
+    <input class="btn btn-success" type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </div>
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
+<p style="margin-left: 615px;"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
 {% endblock %}

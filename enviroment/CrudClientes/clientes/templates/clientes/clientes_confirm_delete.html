@@ -1,14 +1,22 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
-
-<h1>Borrar Cliente</h1>
-
-<p>Estas seguro de querer borrar el cliente: {{ clientes.nombre }} {{ clientes.apellido }}?</p>
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <input type="submit" action="" value="Yes, delete." />
-</form>
+<div >
+  <div style="padding: 15px;"></div>
+  <div class="position-relative" style="border: solid black; position: relative; left: 150px;">
+    <div style="position: relative; left: 500px; margin: 50px;">
+      <h1>Borrar Cliente</h1>
+      
+      <p class="text-break">Estas seguro de querer borrar el cliente: {{ clientes.nombre }} {{ clientes.apellido }}?</p>
+      
+      <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Si, mandale.</button>
+        <!-- <input type="submit" action="" value="Si, mandale." /> -->
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

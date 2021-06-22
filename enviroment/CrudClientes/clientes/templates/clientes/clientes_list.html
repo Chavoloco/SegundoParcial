@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Lista de clientes</h1>
+    <a class="btn btn-success" href="{% url 'cliente_create' %}" role="button">Crear Cliente</a>
     <table class="table">
       <thead>
         <tr>
@@ -12,7 +13,7 @@
           <th scope="col">Telefono</th>
           <th scope="col">Dirección</th>
           <th scope="col">Dni</th>
-          <!-- <th scope="col">Opciones</th> -->
+          <th scope="col">Opciones</th>
         </tr>
       </thead>
       <tbody>
@@ -26,10 +27,7 @@
               <td>{{cliente.telefono}}</td>
               <td>{{cliente.direccion}}</td>
               <td>{{cliente.dni}}</td>
-              <!-- <td>
-                <button type="button" class="btn btn-secondary">aca van las opciones</button>
-                <button type="button" class="btn btn-warning">CRUD</button>
-              </td> -->
+              <td><button onclick="eliminarCliente('{{ cliente.id }}')" class="modal-action modal-close waves-effect waves-green btn-flat">Eliminar</a></td>
             </tr>
           {% endfor %}
         {% else %}
