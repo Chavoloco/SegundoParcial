@@ -3,6 +3,7 @@ from clientes.models import Clientes
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from clientes.forms import formImagen
 
 # from .models import Clientes
 
@@ -34,10 +35,6 @@ def index(request):
 class listaClientes(generic.ListView):
     model = Clientes
     paginate_by = 10
-
-    def get_queryset(self):
-        self.cliente = get_object_or_404(cliente, name=self.kwargs["Clientes"])
-        return Clientes.objects.filter(cliente=self.cliente)
 
     # def get_queryset(self):
     #     return Clientes.objects.filter(nombre__icontains="jer")[
